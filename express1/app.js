@@ -4,11 +4,14 @@ const path = require('path');
 const app = express();
 const port = 3001;
 // for handlebars
-const expressHbs = require('express-handlebars');
+// const expressHbs = require('express-handlebars');
+
+// for EJS
+app.set('view engine', 'ejs');
 
 // for handlebars
-app.engine('hbs', expressHbs({layoutsDir: 'views/layouts/', defaultLayout: 'main-layout', extname: 'hbs'}));
-app.set('view engine', 'hbs');
+// app.engine('hbs', expressHbs({layoutsDir: 'views/layouts/', defaultLayout: 'main-layout', extname: 'hbs'}));
+// app.set('view engine', 'hbs');
 
 // for pug
 // app.set('view engine', 'pug');
