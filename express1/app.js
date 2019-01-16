@@ -7,7 +7,7 @@ const port = 3001;
 const expressHbs = require('express-handlebars');
 
 // for handlebars
-app.engine('hbs', expressHbs());
+app.engine('hbs', expressHbs({layoutsDir: 'views/layouts/', defaultLayout: 'main-layout', extname: 'hbs'}));
 app.set('view engine', 'hbs');
 
 // for pug
