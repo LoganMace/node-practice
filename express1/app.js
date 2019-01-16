@@ -1,18 +1,19 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-// for handlebars
-const expressHbs = require('express-handlebars');
 const path = require('path');
 const app = express();
 const port = 3001;
+// for handlebars
+const expressHbs = require('express-handlebars');
+
+// for handlebars
+app.engine('hbs', expressHbs());
+app.set('view engine', 'hbs');
+
+// for pug
+// app.set('view engine', 'pug');
 
 app.set('views', 'views');
-// for handlebars
-app.engine('hbs', expressHbs);
-app.set('view engine', 'hbs');
-// for pug
-app.set('view engine', 'pug');
-
 
 const adminData = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
