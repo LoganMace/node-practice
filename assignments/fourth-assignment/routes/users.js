@@ -12,6 +12,7 @@ router.get('/users', (req, res, next) => {
 
 router.post('/users', (req, res, next) => {
   users.push(req.body);
+  res.status(200);
 });
 
 module.exports = {
