@@ -12,7 +12,8 @@ const getAddProductPage = (req, res, next) => {
 
 const addProduct = (req, res, next) => {
   // console.log(req.body);
-  const product = new Product(req.body.title);
+  const {title, imageURL, price, description} = req.body;
+  const product = new Product(title, imageURL, price, description);
   product.save();
   res.redirect('/');
 };
