@@ -17,9 +17,18 @@ const addProduct = (req, res, next) => {
   res.redirect('/');
 };
 
-
+const getAdminProductsPage = (req, res, next) => {
+  Product.fetchAll((products) => {
+    res.render('admin/products', { 
+      products, 
+      pageTitle: 'Admin Products', 
+      path: '/admin/products'
+    });
+  });
+};
 
 module.exports = {
   getAddProductPage,
-  addProduct
+  addProduct,
+  getAdminProductsPage
 };
