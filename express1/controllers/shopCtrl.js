@@ -27,6 +27,12 @@ const getCartPage = (req, res, next) => {
   });
 };
 
+const postCart = (req, res, next) => {
+  const prodId = req.body.productId;
+  console.log('prodId: ', prodId);
+  res.redirect('/cart');
+};
+
 const getOrdersPage = (req, res, next) => {
   res.render('shop/orders', {
     path: '/orders',
@@ -58,5 +64,6 @@ module.exports = {
   getCartPage,
   getCheckoutPage,
   getOrdersPage,
-  getProductDetails
+  getProductDetails,
+  postCart
 };
