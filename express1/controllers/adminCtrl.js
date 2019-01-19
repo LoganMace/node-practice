@@ -3,7 +3,8 @@ const Product = require('../models/productMdl');
 const getAddProductPage = (req, res, next) => {
   res.render('admin/edit-product', { 
     pageTitle: 'Add Product', 
-    path: '/admin/add-product'
+    path: '/admin/add-product',
+    editing: false
   })
 };
 
@@ -20,11 +21,22 @@ const getEditProductPage = (req, res, next) => {
   if(!editMode) {
     res.redirect('/');
   }
-  res.render('admin/edit-product', { 
-    pageTitle: 'Edit Product', 
-    path: '/admin/edit-product',
-    editing: editMode
-  })
+  const prodId = req.params.id;
+  Product.findById(prodId, (product) => {
+    if(!product) {
+      return res.redirect('/');
+    }
+    res.render('admin/edit-product', { 
+      pageTitle: 'Edit Product', 
+      path: '/admin/edit-product',
+      editing: editMode,
+      product
+    });
+  });
+};
+
+const postEditProduct = (req, res, next) => {
+  
 };
 
 const getAdminProductsPage = (req, res, next) => {
@@ -41,5 +53,6 @@ module.exports = {
   getAddProductPage,
   addProduct,
   getAdminProductsPage,
-  getEditProductPage
+  getEditProductPage,
+  postEditProduct
 };
