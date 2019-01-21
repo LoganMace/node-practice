@@ -1,2 +1,2 @@
 # node-practice
-Udemy Node course finished assignments.
+Udemy Node course assignments and testing.
